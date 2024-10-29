@@ -66,3 +66,71 @@
    66  history
    67  ls
    68  history > digital-cousins/install_history.txt
+   69  jupyter lab --ip=0.0.0.0  & 
+   70  git status
+   71  vi .gitignore 
+   72  git status
+   73  mkdir tmp
+   74  mv install_history.txt pipFreeze.txt tmp/
+   75  git status
+   76  git add .
+   77  git commit -m 'init'
+   78  git config --global user.email 'zhenieee@gmail.com'
+   79  git config --global user.name 'Zhen Song'
+   80  git commit -m 'init '
+   81  git push
+   82  cp -r tmp/ ..
+   83  ls ..
+   84  git remote -v
+   85  cd ..
+   86  cd digital-cousins/
+   87  git remote add zhen https://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@github.com/robot007/digital-cousins.git
+   88  git remote -v
+   89  git push zhen
+   90  git checkout -b zs1
+   91  git branch
+   92  git push
+   93  ls
+   94  vi README.md 
+   95  git add .
+   96  git status
+   97  git commit -m 'fixed typo'
+   98  git push
+   99  git push --set-upstream zhen zs1
+  100  git push zhen
+  101  ls
+  102  cd deps/
+  103  ls
+  104  pip install git+https://github.com/openai/CLIP.git
+  105  conda install -c pytorch -c nvidia faiss-gpu=1.8.0
+  106  git clone https://github.com/ARISE-Initiative/robomimic.git --branch diffusion-updated --single-branch && cd robomimic
+  107  pip install -e . && cd ..
+  108  sudo apt-get update
+  109  sudo apt-get install libgl1-mesa-dev libgles2-mesa-dev libegl1-mesa-dev
+  110  pip install --upgrade pip setuptools wheel
+  111  pip install glad
+  112  git clone https://github.com/ARISE-Initiative/robomimic.git --branch diffusion-updated --single-branch && cd robomimic
+  113  pip install -e . && cd ..
+  114  dpkg -s build-essential
+  115  dpkg -s python3-dev
+  116  apt list --installed | grep build-essential
+  117  sudo apt list --installed | grep build-essential
+  118  sudo apt-get list --installed | grep build-essential
+  119  sudo apt-get list  | grep build-essential
+  120  sudo apt list  | grep build-essential
+  121  make --version
+  122  g++ --version
+  123  history
+  124  ls
+  125  history > tmp/install_history.txt 
+  126  git clone https://github.com/ARISE-Initiative/robomimic.git --branch diffusion-updated --single-branch && cd robomimic
+  127  pip install -e . && cd ..
+  128  ls
+  129  rm -rf robomimic/
+  130  cd ..
+  131  rm -rf robomimic/
+  132  ls
+  133  cd digital-cousins/
+  134  ls
+  135  ls tmp/
+  136  history > tmp/install_history.txt 

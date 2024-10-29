@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 deps/
 digital_cousins.egg-info/
+**/__pycache__/

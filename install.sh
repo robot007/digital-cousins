@@ -1,4 +1,6 @@
 #!/bin/bash
+PS4='Line ${LINENO}: '
+set -x
 
 # Parse command-line args
 # e - env name to use
