@@ -1,0 +1,68 @@
+    1  history -w
+    2  jupyter lab --ip=0.0.0.0
+    3  jupyter lab --ip=0.0.0.0  & 
+    4  nvidia-smi
+    5  https://github.com/robot007/digital-cousins.git
+    6  git clone https://github.com/robot007/digital-cousins.git
+    7  cd digital-cousins/
+    8  ls
+    9  cat install.sh 
+   10  nvcc -V
+   11  which nvcc
+   12  nvidia-smi
+   13  which nvidia-smi
+   14  ls -l /usr/local/cuda  
+   15  readlink -f /usr/local/cuda ls -l /usr/local/cuda  
+   16  readlink -f /usr/local/cuda 
+   17  ./install.sh -e acdc -c /usr/local/cuda-12.2
+   18  conda activate acdc
+   19  which python
+   20  which python3
+   21  python --version
+   22  python3 --version
+   23  conda create -y -n acdc python=3.10
+   24  find . --iname 'dino*'
+   25  find . -iname 'dino*'
+   26  ls ./deps/
+   27  du -hs
+   28  python -m omnigibson.utils.asset_utils --download_assets --download_og_dataset --accept_license
+   29  cd deps/
+   30  ls -lha
+   31  git clone https://github.com/StanfordVL/OmniGibson.git && cd OmniGibson
+   32  ls -lha
+   33  cd ..
+   34  ls
+   35  cd OmniGibson/
+   36  pip install -e . && python -m omnigibson.install --no-install-datasets && cd ..
+   37  cd ..
+   38  ls -lha
+   39  git clone https://github.com/IDEA-Research/GroundingDINO.git && cd GroundingDINO
+   40  echo $CUDA_HOME
+   41  env
+   42  env | grep CUDA
+   43  readlink -f /usr/local/cuda
+   44  export CUDA_HOME=${readlink -f /usr/local/cuda}
+   45  export CUDA_HOME=$(readlink -f /usr/local/cuda)
+   46  echo $CUDA_HOME
+   47  cd GroundingDINO && pip install --no-build-isolation -e . && cd ..
+   48  pip freeze >> pipFreeze.txt
+   49  vi pipFreeze.txt 
+   50  python -c 'import torch'
+   51  nvcc -V
+   52  mv pipFreeze.txt ~/digital-cousins/
+   53  cd ..
+   54  git clone https://github.com/jinlinyi/PerspectiveFields.git && cd PerspectiveFields
+   55  pip install -e . && cd ..
+   56  git clone https://github.com/DepthAnything/Depth-Anything-V2.git && cd DepthAnything-V2
+   57  pip install -r requirements.txt
+   58  ls Depth-Anything-V2/
+   59  cd  Depth-Anything-V2/
+   60  pip install -r requirements.txt
+   61  conda-develop . && cd ..
+   62  conda install conda-build
+   63  ls
+   64  pip install torch torchvision torchaudio
+   65  pip list | grep torch
+   66  history
+   67  ls
+   68  history > digital-cousins/install_history.txt
