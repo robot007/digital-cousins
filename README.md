@@ -103,9 +103,9 @@ conda activate acdc
         ```
 
     - [Depth-Anything-V2](https://github.com/DepthAnything/Depth-Anything-V2)
-   
+  **Previous note missed a - in DepthAnython-V2, it should be  Depth-Anything-V2**
         ```bash
-        git clone https://github.com/DepthAnything/Depth-Anything-V2.git && cd DepthAnything-V2
+        git clone https://github.com/DepthAnything/Depth-Anything-V2.git && cd Depth-Anything-V2
         pip install -r requirements.txt
         conda-develop . && cd ..
         ```
