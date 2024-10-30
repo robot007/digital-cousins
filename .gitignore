@@ -2,3 +2,6 @@
 deps/
 digital_cousins.egg-info/
 **/__pycache__/
+assets/
+checkpoints/
+tests/
