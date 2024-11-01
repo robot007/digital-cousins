@@ -5,8 +5,15 @@ cd ~/
 # git fetch origin zs
 # git checkout 
 apt update
-apt install vim -qqy
-apt install cmake
+apt install vim cmake -qqy
+# install mamba in order to use conda later
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+sh ./Miniconda3-latest-Linux-x86_64.sh
+conda init
+source ~/.bashrc
+conda install mamba -n base -c conda-forge
+
 git clone https://github.com/StanfordVL/egl_probe.git
 cd egl_probe
 git checkout -b install 3ddf90db69264de2c621
