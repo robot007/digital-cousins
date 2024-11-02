@@ -782,7 +782,13 @@ class RealWorldExtractor:
                         obj_and_wall_mask_path=nonprojected_obj_with_all_wall_img_path,
                         candidates_fpaths=obj_cand_color_walls,
                     )
-                    gpt_text_response = gpt(mount_select_payload).lower()
+                    gpt_output = gpt(mount_select_payload)
+                    if gpt_output is None:
+                        gpt_text_response = None
+                    else:
+                        gpt_text_response = gpt_output.lower()
+                        
+                        
                     if gpt_text_response is None:
                         # Failed, terminate early
                         return False, None
@@ -816,7 +822,11 @@ class RealWorldExtractor:
                             obj_and_wall_mask_path=nonprojected_obj_with_all_wall_img_path,
                             candidates_fpaths=obj_cand_color_walls,
                         )
-                        gpt_text_response = gpt(align_wall_select_payload).lower()
+                        response = None or gpt(align_wall_select_payload)
+                        if response is None: 
+                            gpt_text_response = None 
+                        else:
+                            gpt_text_response = response.lower()
                         if gpt_text_response is None:
                             # Failed, terminate early
                             return False, None

@@ -1,0 +1,55 @@
+ROBOMIMIC WARNING(
+    No private macro file found!
+    It is recommended to use a private macro file
+    To setup, run: python /workspace/digital-cousins/deps/robomimic/robomimic/scripts/setup_macros.py
+)
+
+******************************
+Starting tests...
+******************************
+
+final text_encoder_type: bert-base-uncased
+Querying GPT-4o API...
+Finished querying GPT-4o.
+GPT test response:
+
+[refrigerator(3 doors), cabinet(8 doors & 3 drawers), microwave, cup]
+final text_encoder_type: bert-base-uncased
+FeatureMatcher: Computing GroundedSAMv2 obj boxes...
+FeatureMatcher: Computing top-8 candidates using encoder DinoV2Encoder...
+FeatureMatcher: Computing DINO candidate 1...
+FeatureMatcher: Computing DINO candidate 2...
+FeatureMatcher: Computing DINO candidate 3...
+FeatureMatcher: Computing DINO candidate 4...
+FeatureMatcher: Computing DINO candidate 5...
+FeatureMatcher: Computing DINO candidate 6...
+FeatureMatcher: Computing DINO candidate 7...
+FeatureMatcher: Computing DINO candidate 8...
+Top-8 models: ['bottom_cabinet_pkdnbu.png', 'bottom_cabinet_dsbcxl.png', 'fridge_petcxr.png', 'bottom_cabinet_ttmejh.png', 'bottom_cabinet_mbmbpa.png', 'bottom_cabinet_nddvba.png', 'bottom_cabinet_bamfsz.png', 'fridge_hivvdf.png']
+
+
+##################################################
+##################################################
+# Starting ACDC!
+##################################################
+##################################################
+
+        
+final text_encoder_type: bert-base-uncased
+
+
+##################################################
+##################################################
+# Running ACDC: Step 2 -- Digital Cousin Matching
+##################################################
+##################################################
+
+                        
+Computing digital cousins given output /workspace/digital-cousins/tests/acdc_output/step_1_output/step_1_output_info.json...
+
+
+##################################################################
+### 1. Use CLIP embeddings to find top-K categories per object ###
+##################################################################
+
+            

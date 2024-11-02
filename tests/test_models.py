@@ -16,6 +16,9 @@ SAVE_DIR = f"{TEST_DIR}/test_acdc_output"
 TEST_IMG_PATH = f"{TEST_DIR}/test_img.png"
 CAPTION = "Fridge. Cabinet."
 
+# zhen enable debug
+import pdb 
+
 def test_dinov2(args):
     from digital_cousins.models.dino_v2 import DinoV2Encoder
     encoder = DinoV2Encoder()
@@ -204,7 +207,8 @@ def main(args):
     test_faiss(args)
     test_gpt(args)
     test_fm(args)
-    test_acdc_step_1(args)
+    # test_acdc_step_1(args)
+    
     test_acdc_step_2(args)
     test_acdc_step_3(args)
     og.shutdown()

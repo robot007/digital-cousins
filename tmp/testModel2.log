@@ -1,0 +1,212 @@
+ROBOMIMIC WARNING(
+    No private macro file found!
+    It is recommended to use a private macro file
+    To setup, run: python /workspace/digital-cousins/deps/robomimic/robomimic/scripts/setup_macros.py
+)
+
+******************************
+Starting tests...
+******************************
+
+final text_encoder_type: bert-base-uncased
+Querying GPT-4o API...
+Finished querying GPT-4o.
+GPT test response:
+
+[refrigerator(3 doors), cabinet(8 doors & 3 drawers), microwave, cup]
+final text_encoder_type: bert-base-uncased
+FeatureMatcher: Computing GroundedSAMv2 obj boxes...
+FeatureMatcher: Computing top-8 candidates using encoder DinoV2Encoder...
+FeatureMatcher: Computing DINO candidate 1...
+FeatureMatcher: Computing DINO candidate 2...
+FeatureMatcher: Computing DINO candidate 3...
+FeatureMatcher: Computing DINO candidate 4...
+FeatureMatcher: Computing DINO candidate 5...
+FeatureMatcher: Computing DINO candidate 6...
+FeatureMatcher: Computing DINO candidate 7...
+FeatureMatcher: Computing DINO candidate 8...
+Top-8 models: ['bottom_cabinet_pkdnbu.png', 'bottom_cabinet_dsbcxl.png', 'fridge_petcxr.png', 'bottom_cabinet_ttmejh.png', 'bottom_cabinet_mbmbpa.png', 'bottom_cabinet_nddvba.png', 'bottom_cabinet_bamfsz.png', 'fridge_hivvdf.png']
+
+
+##################################################
+##################################################
+# Starting ACDC!
+##################################################
+##################################################
+
+        
+final text_encoder_type: bert-base-uncased
+
+
+##################################################
+##################################################
+# Running ACDC: Step 1 -- Real World Extraction
+##################################################
+##################################################
+
+                        
+Input image (1612, 907) resized to (1600, 900)
+Saved resized image to /workspace/digital-cousins/tests/test_img_resize.png
+Extracting real-world info from image /workspace/digital-cousins/tests/test_img_resize.png...
+
+                
+###################################
+### 0. Use GPT to infer objects ###
+###################################
+                
+                
+Querying GPT-4o API...
+Finished querying GPT-4o.
+Detected raw object captions: {'microwave', 'refrigerator(2 doors)', 'cup', 'cabinet(8 doors & 3 drawers)'}
+
+
+##################################################################
+### 1. Compute segmentation masks for floor, backsplash, walls ###
+##################################################################
+
+            
+Querying GPT-4o API...
+Finished querying GPT-4o.
+Querying GPT-4o API...
+Finished querying GPT-4o.
+Filtered Wall/Backsplash Masks: ['/workspace/digital-cousins/tests/acdc_output/step_1_output/segmented_objects/backsplash/backsplash_nonprojected.png', '/workspace/digital-cousins/tests/acdc_output/step_1_output/segmented_objects/wall/wall_nonprojected.png']
+
+
+#############################################################
+### 2. Run DepthAnythingV2 to extract synthetic depth map ###
+#############################################################
+
+            
+No K intrinsics matrix given, estimating...
+Estimating depth map...
+
+
+##########################################################
+### 3. Compute z-direction given segmented floor plane ###
+##########################################################
+
+            
+Estimated floor plane equation: 0.00x + 1.00y + 0.06z + -0.00 = 0
+Selected origin_pos: [0.95169839 1.02579405 2.9598999 ]
+Estimated wall 0's plane equation: 0.36x + -0.08y + 0.93z + -3.91 = 0
+Estimated wall 1's plane equation: 0.86x + 0.04y + -0.51z + 2.41 = 0
+
+            
+####################################################################
+### 4. Use GSAMv2 to extract bounding boxes for inferred objects ###
+####################################################################
+            
+            
+Detected parsed unique object categories: {'microwave': None, 'refrigerator': (2, 0), 'cup': None, 'cabinet': (8, 3)}
+Predicting input image bounding boxes using GroundingDINO...
+
+
+##############################################################################################
+### 5. Post-process masks to remove noise and differentiate instances within the same mask ###
+##############################################################################################
+
+                    
+Pruning redundant bounding boxes...
+Remaining phrases after pruning: ['cup', 'microwave', 'refrigerator', 'cabinet', 'cabinet', 'cabinet', 'cabinet', 'cabinet']
+Object names: ['cup_0', 'microwave_0', 'refrigerator_0', 'cabinet_0', 'cabinet_1', 'cabinet_2', 'cabinet_3', 'cabinet_4']
+
+
+########################################################################
+### 6. Re-prompt GPT to align original caption with GSAMv2's caption ###
+########################################################################
+
+            
+Estimated z-direction computed from floor point cloud: [-0.00385772 -0.99821903 -0.05953049]
+-----------------
+Object 1 / 8
+Inferring caption...
+Pruning masks...
+name: cup_0
+phrase: cup
+clean_caption: cup
+-----------------
+
+-----------------
+Object 2 / 8
+Inferring caption...
+Pruning masks...
+name: microwave_0
+phrase: microwave
+clean_caption: microwave
+-----------------
+
+-----------------
+Object 3 / 8
+Inferring caption...
+Pruning masks...
+name: refrigerator_0
+phrase: refrigerator
+clean_caption: refrigerator
+-----------------
+
+-----------------
+Object 4 / 8
+Inferring caption...
+Pruning masks...
+name: cabinet_0
+phrase: cabinet
+clean_caption: cabinet
+-----------------
+
+-----------------
+Object 5 / 8
+Inferring caption...
+Pruning masks...
+name: cabinet_1
+phrase: cabinet
+clean_caption: cabinet
+-----------------
+
+-----------------
+Object 6 / 8
+Inferring caption...
+Pruning masks...
+name: cabinet_2
+phrase: cabinet
+clean_caption: cabinet
+-----------------
+
+-----------------
+Object 7 / 8
+Inferring caption...
+Pruning masks...
+name: cabinet_3
+phrase: cabinet
+clean_caption: cabinet
+-----------------
+
+-----------------
+Object 8 / 8
+Inferring caption...
+Pruning masks...
+name: cabinet_4
+phrase: cabinet
+clean_caption: cabinet
+-----------------
+
+
+Pre-filtering possible mounting...
+
+
+Inferring mounting types...
+
+-----------------
+Object 1 / 8
+Name: cup_0
+Candidate walls: ['backsplash_mask']
+Inferring mounting type...
+Inferring aligned wall...
+-----------------
+Object 2 / 8
+Name: microwave_0
+Candidate walls: ['backsplash_mask']
+Inferring mounting type...
+Inferring aligned wall...
+Got error while querying GPT-4o API! Response:
+
+{'error': {'message': 'Rate limit reached for gpt-4o in organization org-SfxsKYz0wlfhCMqBGHTyyfLO on tokens per min (TPM): Limit 30000, Used 25483, Requested 4974. Please try again in 914ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
